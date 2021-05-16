@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="d-flex">
-        <div class="sidebar_left">
+        <div id="sidebar_left">
             <div class="card border border-light shadow-0">
                 <div class="card-header">Featured</div>
                 <div class="card-body">
@@ -53,48 +53,50 @@
                 </div>
             @endforeach
         </div>
-        <aside class="sidebar_right">
-            <div class="mb-3">
-                <form action="">
-                    <input type="text" class="form-control rounded-start" id="exampleFormControlInput1" placeholder="キーワード検索">
-                </form>
-            </div>
-            <div class="card border border-light2">
-                <div class="card-header bg-primary text-white">最近いいねしたユーザー</div>
-                <div class="card-body">
-                    <p class="card-text">
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="d-flex align-items-center mt-2 mb-3">
-                                <img class="rounded-circle" src="{{ $data_name[$i]['user_img_path'] }}" alt="ユーザー画像" width="49" height="49">
-                                <div class="ml-2">
-                                    <p class="mt-1 mb-0"><a class="d-block text-main font-weight-bold" target="_blank" href="https://twitter.com/{{ $data_name[$i]['screen_name'] }}">{{ $data_name[$i]['user_name'] }}</a></p>
-                                    <p class="m-0 text-main">{{ '＠' . $data_name[$i]['screen_name'] }}</p>
-                                </div>
-                            </div>
-                            @if ($i != 2)
-                                <hr>
-                            @endif
-                        @endfor
-                    </p>
+        <aside id="sidebar_right">
+            <div id="sidebar_right__wrap">
+                <div class="mb-3">
+                    <form action="">
+                        <input type="text" class="form-control rounded-start" id="exampleFormControlInput1" placeholder="キーワード検索">
+                    </form>
                 </div>
-            </div>
-            <div class="card border border-light2">
-                <div class="card-header bg-primary text-white">いいねしたユーザーTOP3</div>
-                <div class="card-body">
-                    <p class="card-text">
-                        @for ($j = 0; $j < 3; $j++)
-                            <div class="d-flex align-items-center mt-2 mb-3">
-                                <img class="rounded-circle" src="{{ $ranking[$j]['user_img_path'] }}" alt="ユーザー画像" width="49" height="49">
-                                <div class="ml-2">
-                                    <p class="mt-1 mb-0"><a class="d-block text-main font-weight-bold" target="_blank" href="https://twitter.com/{{ $ranking[$j]['screen_name'] }}">{{ $ranking[$j]['user_name'] }}</a></p>
-                                    <p class="m-0 text-main">{{ '＠' . $ranking[$j]['screen_name'] }}</p>
+                <div class="card border border-light2">
+                    <div class="card-header bg-primary text-white">最近いいねしたユーザー</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            @for ($i = 0; $i < 3; $i++)
+                                <div class="d-flex align-items-center mt-2 mb-3">
+                                    <img class="rounded-circle" src="{{ $data_name[$i]['user_img_path'] }}" alt="ユーザー画像" width="49" height="49">
+                                    <div class="ml-2">
+                                        <p class="mt-1 mb-0"><a class="d-block text-main font-weight-bold" target="_blank" href="https://twitter.com/{{ $data_name[$i]['screen_name'] }}">{{ $data_name[$i]['user_name'] }}</a></p>
+                                        <p class="m-0 text-main">{{ '＠' . $data_name[$i]['screen_name'] }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            @if ($j != 2)
-                                <hr>
-                            @endif
-                        @endfor
-                    </p>
+                                @if ($i != 2)
+                                    <hr>
+                                @endif
+                            @endfor
+                        </p>
+                    </div>
+                </div>
+                <div class="card border border-light2">
+                    <div class="card-header bg-primary text-white">いいねしたユーザーTOP3</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            @for ($j = 0; $j < 3; $j++)
+                                <div class="d-flex align-items-center mt-2 mb-3">
+                                    <img class="rounded-circle" src="{{ $ranking[$j]['user_img_path'] }}" alt="ユーザー画像" width="49" height="49">
+                                    <div class="ml-2">
+                                        <p class="mt-1 mb-0"><a class="d-block text-main font-weight-bold" target="_blank" href="https://twitter.com/{{ $ranking[$j]['screen_name'] }}">{{ $ranking[$j]['user_name'] }}</a></p>
+                                        <p class="m-0 text-main">{{ '＠' . $ranking[$j]['screen_name'] }}</p>
+                                    </div>
+                                </div>
+                                @if ($j != 2)
+                                    <hr>
+                                @endif
+                            @endfor
+                        </p>
+                    </div>
                 </div>
             </div>
         </aside>
