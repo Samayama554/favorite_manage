@@ -4,16 +4,26 @@
 <div class="container">
     <div class="d-flex">
         <div id="sidebar_left">
-            <div class="card border border-light shadow-0">
-                <div class="card-header">Featured</div>
+            <div class="card border border-light2">
+                <div class="card-header bg-primary text-light">ログインユーザー</div>
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
                     <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the
-                        card's content.
-                    </p>
+                        <div class="d-flex align-items-center mt-2 mb-3">
+                            <img class="rounded-circle" src="{{ $user_info['image'] }}" alt="ユーザー画像" width="49" height="49">
+                            <div class="ml-2">
+                                <p class="mt-1 mb-0"><a class="d-block text-main font-weight-bold" target="_blank" href="https://twitter.com/{{ $user_info['screen_name'] }}">{{ $user_info['name'] }}</a></p>
+                                <p class="m-0 text-main">{{ '＠' . $user_info['screen_name'] }}</p>
+                            </div>
+                        </div>
                 </div>
             </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li>
+            </ul>
         </div>
         <div class="tweet_list">
             @foreach ($data_orthopedy as $key1 => $val1)

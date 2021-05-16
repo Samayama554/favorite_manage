@@ -57,7 +57,22 @@ class TwitterController extends Controller
         $data_name = TwitterController::classificationName($data_orthopedy);
         $ranking = TwitterController::getRanking3($data_orthopedy);
 
-        return view('index', compact('data_orthopedy', 'data_name', 'ranking'));
+        // 利用者情報取得
+        $user_info = TwitterController::getUserInfo();
+
+        return view('index', compact('data_orthopedy', 'data_name', 'ranking', 'user_info'));
+    }
+
+    function getUserInfo() {
+
+        $user_info = [];
+
+        $user_info['id'] = TwitterController::getUserId();
+        $user_info['name'] = TwitterController::getUserName();
+        $user_info['screen_name'] = TwitterController::getUserScreenName();
+        $user_info['image'] = TwitterController::getUserImage();
+
+        return $user_info;
     }
 
     //----------------------------------------------------------------------
@@ -157,6 +172,7 @@ class TwitterController extends Controller
     // 利用しているユーザーのIDを取得
     //----------------------------------------------------------------------
     function getUserId() {
+        $user = Auth::user();
         $user_id = NULL;
 
         $consumer_key = config('twitter.consumer_key');
@@ -170,7 +186,7 @@ class TwitterController extends Controller
             // 取得するツイートの条件を配列で指定
             array(
                 // ユーザー名（@は不要）
-                'screen_name'       => 'Yuma_ITCreater',
+                'screen_name'       => $user->name,
             )
         );
 
@@ -182,6 +198,7 @@ class TwitterController extends Controller
     // 利用しているユーザーの名前取得
     //----------------------------------------------------------------------
     function getUserName() {
+        $user = Auth::user();
         $user_id = NULL;
 
         $consumer_key = config('twitter.consumer_key');
@@ -195,7 +212,7 @@ class TwitterController extends Controller
             // 取得するツイートの条件を配列で指定
             array(
                 // ユーザー名（@は不要）
-                'screen_name'       => 'Yuma_ITCreater',
+                'screen_name'       => $user->name,
             )
         );
 
@@ -207,6 +224,7 @@ class TwitterController extends Controller
     // 利用しているユーザーの@以下取得
     //----------------------------------------------------------------------
     function getUserScreenName() {
+        $user = Auth::user();
         $user_id = NULL;
 
         $consumer_key = config('twitter.consumer_key');
@@ -220,7 +238,7 @@ class TwitterController extends Controller
             // 取得するツイートの条件を配列で指定
             array(
                 // ユーザー名（@は不要）
-                'screen_name'       => 'Yuma_ITCreater',
+                'screen_name'       => $user->name,
             )
         );
 
@@ -232,6 +250,7 @@ class TwitterController extends Controller
     // 利用しているユーザー画像を取得
     //----------------------------------------------------------------------
     function getUserImage() {
+        $user = Auth::user();
         $user_id = NULL;
 
         $consumer_key = config('twitter.consumer_key');
@@ -245,7 +264,7 @@ class TwitterController extends Controller
             // 取得するツイートの条件を配列で指定
             array(
                 // ユーザー名（@は不要）
-                'screen_name'       => 'Yuma_ITCreater',
+                'screen_name'       => $user->name,
             )
         );
 
