@@ -1,0 +1,26 @@
+.tweet_list .container {
+    max-width: 600px;
+}
+
+.tweet_list .container:nth-of-type(n+2) .card {
+    margin: 12px 0;
+}
+
+.sidebar_right,
+.sidebar_left {
+    max-width: 300px;
+}
+
+aside .card:nth-of-type(n+2) {
+    margin: 12px 0;
+}
+
+.btn-rounded {
+    border-radius: 10rem !important;
+}
+
+@media screen and (max-width: 1004px) {
+    .sidebar_right {
+        display: none;
+    }
+}

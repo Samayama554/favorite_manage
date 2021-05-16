@@ -18,7 +18,7 @@
         <div class="tweet_list">
             @foreach ($data_orthopedy as $key1 => $val1)
                 <div class="container">
-                    <div id="{{ $val1['tweet_id'] }}" class="card border border-light shadow-0 rounded-0">
+                    <div id="{{ $val1['tweet_id'] }}" class="card border border-light2 rounded-0">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <i class="far fa-clock text-main"></i><span class="mt-05 ml-1 text-main">{{ $val1['date'] }}</span>
@@ -54,8 +54,13 @@
             @endforeach
         </div>
         <aside class="sidebar_right">
-            <div class="card border border-light shadow-0">
-                <div class="card-header">最近いいねしたユーザー</div>
+            <div class="mb-3">
+                <form action="">
+                    <input type="text" class="form-control rounded-start" id="exampleFormControlInput1" placeholder="キーワード検索">
+                </form>
+            </div>
+            <div class="card border border-light2">
+                <div class="card-header bg-primary text-white">最近いいねしたユーザー</div>
                 <div class="card-body">
                     <p class="card-text">
                         @for ($i = 0; $i < 3; $i++)
@@ -73,8 +78,8 @@
                     </p>
                 </div>
             </div>
-            <div class="card border border-light shadow-0">
-                <div class="card-header">いいねしたユーザーTOP3</div>
+            <div class="card border border-light2">
+                <div class="card-header bg-primary text-white">いいねしたユーザーTOP3</div>
                 <div class="card-body">
                     <p class="card-text">
                         @for ($j = 0; $j < 3; $j++)
