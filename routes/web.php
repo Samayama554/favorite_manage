@@ -11,15 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/top', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/twitter', 'TwitterController@index')->name('root');
+Route::get('/', 'TwitterController@index')->name('root');
+Route::get('/top', 'TwitterController@top')->name('top');
 
 //======================================================================
 //  Twitterログイン
